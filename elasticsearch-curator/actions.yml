@@ -1,0 +1,52 @@
+actions:
+  1:
+    action: delete_indices
+    description: >-
+      Delete indices older than 15 days for metricbeat prefixed indices.
+    options:
+      ignore_empty_list: True
+      disable_action: False
+    filters:
+    - filtertype: pattern
+      kind: regex
+      value: "^(metricbeat-).*$"
+    - filtertype: age
+      source: name
+      direction: older
+      timestring: '%Y.%m.%d'
+      unit: days
+      unit_count: 15
+  2:
+    action: delete_indices
+    description: >-
+      Delete indices older than 30 days for filebeat prefixed indices.
+    options:
+      ignore_empty_list: True
+      disable_action: False
+    filters:
+    - filtertype: pattern
+      kind: regex
+      value: "^(filebeat-).*$"
+    - filtertype: age
+      source: name
+      direction: older
+      timestring: '%Y.%m.%d'
+      unit: days
+      unit_count: 90
+  3:
+    action: delete_indices
+    description: >-
+      Delete indices older than 30 days for winlogbeat prefixed indices.
+    options:
+      ignore_empty_list: True
+      disable_action: False
+    filters:
+    - filtertype: pattern
+      kind: regex
+      value: "^(winlogbeat-).*$"
+    - filtertype: age
+      source: name
+      direction: older
+      timestring: '%Y.%m.%d'
+      unit: days
+      unit_count: 30

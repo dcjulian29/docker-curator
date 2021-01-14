@@ -1,0 +1,9 @@
+version: '3'
+services:
+  curator:
+    #build: .
+    image: 'dcjulian29/elasticsearch-curator:latest'
+    environment:
+      - ES_HOST=elasticsearch.jnet.julianscorner.com
+    volumes:
+      - ./actions.yml:/etc/curator/actions.yml
