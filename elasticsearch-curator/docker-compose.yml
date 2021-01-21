@@ -7,3 +7,4 @@ services:
       - ES_HOST=elasticsearch.jnet.julianscorner.com
     volumes:
       - ./actions.yml:/etc/curator/actions.yml
+      - ./config.yml:/etc/curator/config.yml
