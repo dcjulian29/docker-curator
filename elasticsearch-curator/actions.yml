@@ -2,14 +2,14 @@ actions:
   1:
     action: delete_indices
     description: >-
-      Delete indices older than 15 days for metricbeat prefixed indices.
+      Delete indices with 15 days retention.
     options:
       ignore_empty_list: True
       disable_action: False
     filters:
     - filtertype: pattern
       kind: regex
-      value: "^(metricbeat-).*$"
+      value: "^(metricbeat-)|(pfsense-).*$"
     - filtertype: age
       source: name
       direction: older
@@ -19,34 +19,34 @@ actions:
   2:
     action: delete_indices
     description: >-
-      Delete indices older than 30 days for filebeat prefixed indices.
+      Delete indices with 30 days retention.
     options:
       ignore_empty_list: True
       disable_action: False
     filters:
     - filtertype: pattern
       kind: regex
-      value: "^(filebeat-).*$"
-    - filtertype: age
-      source: name
-      direction: older
-      timestring: '%Y.%m.%d'
-      unit: days
-      unit_count: 90
-  3:
-    action: delete_indices
-    description: >-
-      Delete indices older than 30 days for winlogbeat prefixed indices.
-    options:
-      ignore_empty_list: True
-      disable_action: False
-    filters:
-    - filtertype: pattern
-      kind: regex
-      value: "^(winlogbeat-).*$"
+      value: "^(syslog|docker|filebeat|winlogbeat)-.*$"
     - filtertype: age
       source: name
       direction: older
       timestring: '%Y.%m.%d'
       unit: days
       unit_count: 30
+  3:
+    action: delete_indices
+    description: >-
+      Delete indices with 90 days retention.
+    options:
+      ignore_empty_list: True
+      disable_action: False
+    filters:
+    - filtertype: pattern
+      kind: regex
+      value: "^(filebeat|web)-.*$"
+    - filtertype: age
+      source: name
+      direction: older
+      timestring: '%Y.%m.%d'
+      unit: days
+      unit_count: 90
