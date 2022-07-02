@@ -1,4 +1,4 @@
-# A Docker Container for NMap
+# A Docker Container for Elasticsearch Curator
 
 [![Docker Pulls](https://img.shields.io/docker/pulls/dcjulian29/elasticsearch-curator.svg)](https://hub.docker.com/r/dcjulian29/elasticsearch-curator/) [![Docker Stars](https://img.shields.io/docker/stars/dcjulian29/elasticsearch-curator.svg?maxAge=2592000)](https://hub.docker.com/r/dcjulian29/elasticsearch-curator/) [![GitHub Issues](https://img.shields.io/github/issues-raw/dcjulian29/docker-curator.svg)](https://github.com/dcjulian29/docker-curator/issues) [![CI](https://github.com/dcjulian29/docker-curator/actions/workflows/ci.yml/badge.svg)](https://github.com/dcjulian29/docker-curator/actions/workflows/ci.yml) [![Release Image](https://github.com/dcjulian29/docker-curator/actions/workflows/release.yml/badge.svg)](https://github.com/dcjulian29/docker-curator/actions/workflows/release.yml)
 
