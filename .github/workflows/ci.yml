@@ -24,7 +24,7 @@ jobs:
 
       - name: Grab the version to use.
         id: vars
-        run: echo "::set-output name=version::$(cat VERSION)"
+        run: echo "version=$(cat VERSION)" >> $GITHUB_OUTPUT
 
       - name: Build the Docker Image.
         run: docker build --progress plain --tag elasticsearch-curator:${{ steps.vars.outputs.version }}-ci$(date +%s) .
